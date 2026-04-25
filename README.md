@@ -8,13 +8,46 @@ Self-hosted wallet tracker and tax reporting tool for the [Qubic](https://qubic.
 
 ## Install on your Umbrel
 
-1. Open your Umbrel device → **App Store**
-2. Tap the **⋮** menu → **Community App Stores**
-3. Add this URL:
+### Step 1 — Add the Community App Store
+
+1. Open your Umbrel device in the browser
+2. Go to **App Store**
+3. Tap the **⋮** menu (top right) → **Community App Stores**
+4. Paste this URL and confirm:
    ```
    https://github.com/AndyQus/qubicflow-umbrel-store
    ```
-4. Find **QubicFlow** in the Community section and install
+
+### Step 2 — Install QubicFlow
+
+5. Scroll down to the **Community** section in the App Store
+6. Find **QubicFlow** and tap **Install**
+7. Wait for the download and startup (~1–2 minutes)
+
+### Step 3 — Open the App
+
+8. Tap **Open** on the QubicFlow tile
+9. The app opens in your browser at your Umbrel's local address
+
+### First Setup
+
+Once open, go to **Settings → Nodes** and add at least one Qubic node:
+
+| Field | Value |
+|-------|-------|
+| URL | `https://rpc.qubic.org` |
+| Type | `RPC` |
+| Label | `Qubic RPC` |
+| Priority | `1` |
+
+Then go to **Wallets** → **Add Wallet** and enter your Qubic wallet address (60 uppercase letters).  
+QubicFlow will start syncing your transaction history automatically.
+
+### App Password (Backup Protection)
+
+Umbrel automatically sets a password for the backup and restore endpoints.  
+This password is managed by Umbrel and shown under **App Store → QubicFlow → Details**.  
+No manual configuration required.
 
 ---
 
