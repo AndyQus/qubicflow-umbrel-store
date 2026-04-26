@@ -4,7 +4,7 @@ name: QubicFlow
 tagline: Live Qubic network monitor and tax tracker for self-hosters
 icon: https://raw.githubusercontent.com/AndyQus/qubicflow-umbrel-store/main/qfstore-qubicflow/icon.svg
 category: finance
-version: "2026.04.26"
+version: "0.1.0"
 port: 8080
 
 description: >-
