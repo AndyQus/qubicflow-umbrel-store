@@ -4,7 +4,7 @@ name: QubicFlow
 tagline: Live Qubic network monitor and tax tracker for self-hosters
 icon: https://raw.githubusercontent.com/AndyQus/qubicflow-umbrel-store/main/qfstore-qubicflow/icon.svg
 category: finance
-version: "0.2.20"
+version: "0.2.21"
 port: 8080
 
 description: >-
@@ -59,14 +59,9 @@ gallery:
   - https://raw.githubusercontent.com/AndyQus/qubicflow-umbrel-store/main/qfstore-qubicflow/gallery/3.png
 
 releaseNotes: |-
-  Fixed:
-  - **Home IP blocked by rpc.qubic.org** — Cloudflare limits public Qubic APIs per public IP (~100–120 requests/min), shared by every device in the network. When the budget is used up, qubic.org web apps (wallet, explorer) in the same network fail with CORS errors (the 429 response has no CORS header). QubicFlow alone could use 100/min, and some paths ignored the configured Home Node:
-    - New outbound throttle per public host: token bucket with small burst, default **25 requests/min** (`PUBLIC_RPC_RATE_LIMIT_PER_MIN`, `PUBLIC_RPC_BURST`). Every retry counts against the budget. Own nodes in the LAN (private IPs, `*.local`, Docker service names) are not throttled
-    - A 429 (or 503 with `Retry-After`) now pauses **all** requests to that host for the `Retry-After` time (default 60 s, max. 300 s) instead of each request retrying on its own
-    - Tick→epoch lookups during the TX sync and the epoch backfill went to `rpc.qubic.org` hard-coded, once per new transaction tick — they now use the Home Node / configured RPC node. The manual TX resync uses the Home Node too
-    - While a Home Node is online, public nodes (`rpc.qubic.org`, `bobnet.qubic.li`) are health-checked every 5 min instead of every 30 s, and not marked offline while their host pauses us
-    - QX price lookups (`qxinfo.qubic.org`) use the same throttle
-    - `GET /metrics` shows the budget, requests in the last minute and active pauses per host (`public_api`)
+  Security:
+  - **TLS certificates of public nodes are now verified** — requests to BOB nodes and Home Nodes always skipped certificate verification, also for public HTTPS hosts like `bob.qubic.li`, so a man-in-the-middle could have fed QubicFlow fake data. Certificates are now verified for every public host; own nodes in the LAN (private IPs, `*.local`, Docker service names) keep working with http or self-signed certificates
+  - **Updated CA certificates** — the images are rebuilt on current base images without the distrusted roots *emSign ECC Root CA - G3* and *AAA Certificate Services* (CA advisory of 2026-10-20)
 
 path: ""
 defaultUsername: ""
