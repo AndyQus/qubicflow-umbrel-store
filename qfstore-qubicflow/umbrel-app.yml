@@ -4,7 +4,7 @@ name: QubicFlow
 tagline: Live Qubic network monitor and tax tracker for self-hosters
 icon: https://raw.githubusercontent.com/AndyQus/qubicflow-umbrel-store/main/qfstore-qubicflow/icon.svg
 category: finance
-version: "0.2.21"
+version: "0.2.22"
 port: 8080
 
 description: >-
@@ -59,9 +59,10 @@ gallery:
   - https://raw.githubusercontent.com/AndyQus/qubicflow-umbrel-store/main/qfstore-qubicflow/gallery/3.png
 
 releaseNotes: |-
-  Security:
-  - **TLS certificates of public nodes are now verified** — requests to BOB nodes and Home Nodes always skipped certificate verification, also for public HTTPS hosts like `bob.qubic.li`, so a man-in-the-middle could have fed QubicFlow fake data. Certificates are now verified for every public host; own nodes in the LAN (private IPs, `*.local`, Docker service names) keep working with http or self-signed certificates
-  - **Updated CA certificates** — the images are rebuilt on current base images without the distrusted roots *emSign ECC Root CA - G3* and *AAA Certificate Services* (CA advisory of 2026-10-20)
+  Removed:
+  - **Donation feature** — the donation address is no longer considered safe after the Qubic seed hack in October 2026, so every donation request is gone: the support banner and the thank-you notice, the support link in the navigation, the QR code, the donation address, supporter ranks, the top-supporters list and the personal donation history on `/support`. The page itself stays reachable by URL and only shows the about section
+  - Backend: the endpoints `/events/donation-check`, `/events/donation-suppression`, `/events/donation-top` and `/events/donation-history` and the hourly job `refresh_donation_cache`. The `donor_cache` table stays in the database untouched
+  - Frontend dependency `qrcode`
 
 path: ""
 defaultUsername: ""
