@@ -92,27 +92,6 @@ Found a bug or have a question? [Open an issue](https://github.com/AndyQus/qubic
 
 ---
 
-## Support QubicFlow
-
-QubicFlow is free and will stay that way. If the app saves you time or helps with your taxes, a voluntary donation in Qubic is appreciated.
-
-**Donation address:**
-```
-CCCJKFMDTUFFWDCRBFNHMQRYOBABEKBDUZWEJMARUETQPTFZWBCJLYUGREXI
-```
-
-Sending QU from one of your registered wallets automatically removes the support banner for the corresponding period:
-
-| Amount | Duration |
-|--------|----------|
-| 1,000,000 QU | 1 month |
-| 12,000,000 QU | 1 year |
-| 100,000,000+ QU | Forever |
-
-Your support funds: continued development, new features, user support, and time.
-
----
-
 ## More apps by AndyQus
 
 - [MyLedger](https://myledger.qubic.tools) — Qubic Ledger Tool
